@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle } from 'lucide-react';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -36,14 +37,14 @@ const Contact: React.FC = () => {
       });
 
       if (response.ok) {
-        alert("Message sent successfully! I'll get back to you soon.");
+        toast.success("Message sent successfully! I'll get back to you soon.");
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        alert('Failed to send message. Please try again later.');
+        toast.error('Failed to send message. Please try again later.');
       }
     } catch (error) {
       console.error('Form submission error:', error);
-      alert('Something went wrong. Please try again later.');
+      toast.error('Something went wrong. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }
@@ -96,6 +97,8 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800 relative overflow-hidden">
+      <Toaster position="top-right" toastOptions={{ duration: 4000 }} />
+
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           animate={{ rotate: [0, 360], scale: [1, 1.1, 1] }}
@@ -139,7 +142,7 @@ const Contact: React.FC = () => {
             <div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Let's Connect</h3>
               <p className="text-gray-600 dark:text-gray-400 mb-8">
-                I'm always excited to work on new projects and collaborate with amazing people. 
+                I'm always excited to work on new projects and collaborate with amazing people.
                 Feel free to reach out if you have any questions or just want to say hello!
               </p>
             </div>
