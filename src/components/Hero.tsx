@@ -12,7 +12,6 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
-      {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           animate={{
@@ -42,7 +41,6 @@ const Hero: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left side - Text content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}

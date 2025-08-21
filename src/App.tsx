@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
-import ThemeToggle from './components/ThemeToggle';
-import WaveBackground from './components/WaveBackground';
-import ScrollProgress from './components/ScrollProgress';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
+import ThemeToggle from "./components/ThemeToggle";
+import WaveBackground from "./components/WaveBackground";
+import ScrollProgress from "./components/ScrollProgress";
+import ExperienceCard from "./components/ExperienceCard";
 
 function App() {
   const [isDark, setIsDark] = useState(false);
@@ -24,16 +25,16 @@ function App() {
   useEffect(() => {
     const html = document.documentElement;
     if (isDark) {
-      html.classList.add('dark');
+      html.classList.add("dark");
     } else {
-      html.classList.remove('dark');
+      html.classList.remove("dark");
     }
-    console.log('HTML classes:', html.className);
+    console.log("HTML classes:", html.className);
   }, [isDark]);
 
   const toggleTheme = () => {
     setIsDark((prev) => {
-      console.log('Theme toggled! New value:', !prev);
+      console.log("Theme toggled! New value:", !prev);
       return !prev;
     });
   };
@@ -56,7 +57,7 @@ function App() {
             >
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                 className="w-16 h-16 border-4 border-white border-t-transparent rounded-full mx-auto mb-4"
               />
               <motion.h1
@@ -90,6 +91,8 @@ function App() {
           <main>
             <Hero />
             <About />
+
+            <ExperienceCard/>
             <Projects />
             <Contact />
           </main>
